@@ -20,7 +20,7 @@ with st.expander('Data'):
   y
 
 with st.expander('Data Visualization'):
-  st.scatter_chart(data=df, x='Usage Frequency', y='Total Spend', color='Churn')
+  st.scatter_chart(data=df, x='CustomerID', y='Total Spend', color='Churn')
 
 st.text_input('what do you think?')
 
