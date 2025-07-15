@@ -28,6 +28,12 @@ with st.sidebar:
   sub_type = st.selectbox('Subscription Type', ['Basic', 'Standard', 'Premium'])
   con_length = st.selectbox('Contract Length', ['Monthly', 'Quarterly', 'Annual'])
   age = st.slider('Age', 0, 100, 50)
+  tenure = st.slider('Tenure', 1, 70, 32)
+  useage_freq = st.slider('Usage Frequency', 1, 40, 15)
+  sup_calls = st.slider('Support Calls', 0, 15, 6)
+  pay_delay = st.slider('Payment Delay', 0, 40, 20)
+  tot_spend = st.number_input('Total Spend', 100, 1000, 500, 1)
+  last_int = st.slider('Last Interaction', 1, 50, 25, 1)
 
 st.text_input('what do you think?')
 
