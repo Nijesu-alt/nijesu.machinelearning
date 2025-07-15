@@ -11,12 +11,12 @@ with st.expander('Data'):
   df = pd.read_csv(url)
   df
 
-st.write('**X**')
-X = df.drop('Churn', axis=1)
-X
-
-st.write('**y**')
-y = df.Churn
-y
+  st.write('**X**')
+  X = df.drop('Churn', axis=1)
+  X
+  
+  st.write('**y**')
+  y = df.Churn
+  y
 
 
