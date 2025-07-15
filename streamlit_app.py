@@ -10,3 +10,11 @@ with st.expander('Data'):
   url = "https://raw.githubusercontent.com/Nijesu-alt/nijesu.machinelearning/refs/heads/master/customer_churn_dataset-testing-master.csv"
   df = pd.read_csv(url)
   df
+
+st.write('**X**')
+X = df.drop('Churn')
+X
+
+st.write('**y**')
+y = df.Churn
+y
