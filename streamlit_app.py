@@ -52,5 +52,9 @@ data = {
 
 input_df = pd.DataFrame(data, index=[0])
 input_tot = pd.concat([input_df, X], axis=0)
-input_df
-input_tot
+
+with st.expander('Input Features'):
+  st.write('**Inputed Customer Churn Features**')
+  input_df
+  st.write('**Combined Churn Data**')
+  input_tot
