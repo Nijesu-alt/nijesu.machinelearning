@@ -51,3 +51,4 @@ data = {
 }
 
 input_df = pd.DataFrame(data, index=[0])
+input_df
