@@ -37,4 +37,17 @@ with st.sidebar:
 
 st.text_input('what do you think?')
 
+data = {
+  'Age' : age,
+  'Gender' : gender,
+  'Tenure' : tenure,
+  'Usage Frequency' : useage_freq,
+  'Support Calls' : sup_calls,
+  'Payment Delay' : pay_delay,
+  'Subscription Type' : sub_type,
+  'Contract Length' : con_length,
+  'Total Spend' : tot_spend,
+  'Last Interaction' : last_int
+}
 
+input_df = pd.DataFrame(data, index=[0])
