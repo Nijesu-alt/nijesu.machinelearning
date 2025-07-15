@@ -19,4 +19,7 @@ with st.expander('Data'):
   y = df.Churn
   y
 
+with st.expander('Data Visualization'):
+  st.scatter_chart(data=df, x='Usage Frequency', y='Total Spend', color='Churn')
+
 
