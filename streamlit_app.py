@@ -5,5 +5,6 @@ st.title('🤖 Machine Learning App')
 
 st.info('This app builds a machine learning model')
 
-df = pd.read_csv('customer_churn_dataset-testing-master')
+url = "https://raw.githubusercontent.com/nijesu/machinelearning/main/data/customer_churn.csv"
+df = pd.read_csv(url)
 df
