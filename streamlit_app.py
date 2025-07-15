@@ -22,6 +22,13 @@ with st.expander('Data'):
 with st.expander('Data Visualization'):
   st.scatter_chart(data=df, x='CustomerID', y='Total Spend', color='Churn')
 
+with st.sidebar:
+  st.header('Input Features')
+  gender = st.selectbox('Gender', ['Female', 'Male'])
+  sub_type = st.selectbox('Subscription Type', ['Basic', 'Standard', 'Premium'])
+  con_length = st.selectbox('Contract Length', ['Monthly', 'Quarterly', 'Annual'])
+  age = st.slider('Age', 0, 100, 50)
+
 st.text_input('what do you think?')
 
 
