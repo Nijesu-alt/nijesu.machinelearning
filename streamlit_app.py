@@ -22,4 +22,6 @@ with st.expander('Data'):
 with st.expander('Data Visualization'):
   st.scatter_chart(data=df, x='Usage Frequency', y='Total Spend', color='Churn')
 
+st.text_input('what do you think?')
+
 
