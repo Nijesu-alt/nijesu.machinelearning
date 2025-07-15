@@ -32,7 +32,7 @@ with st.sidebar:
   useage_freq = st.slider('Usage Frequency', 1, 40, 15)
   sup_calls = st.slider('Support Calls', 0, 15, 6)
   pay_delay = st.slider('Payment Delay', 0, 40, 20)
-  tot_spend = st.number_input('Total Spend', 100, 1000, 500, 1)
+  tot_spend = st.number_input('Total Spend', 100, 1000, 500, 50)
   last_int = st.slider('Last Interaction', 1, 50, 25, 1)
 
 st.text_input('what do you think?')
