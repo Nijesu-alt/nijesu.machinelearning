@@ -12,7 +12,7 @@ with st.expander('Data'):
   df
 
 st.write('**X**')
-X = df.drop('Churn')
+X = df.drop('Churn', axis=1)
 X
 
 st.write('**y**')
