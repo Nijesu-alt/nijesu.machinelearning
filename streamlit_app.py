@@ -98,8 +98,7 @@ with gzip.open('mymodel1.pkl.gz', 'rb') as f:
 
 if st.button("Predict"):
     prediction = model.predict(scaler_input)
-    prediction
-    # st.success(f"Prediction: {prediction[0]}")
+    st.success(f"Prediction: {prediction[0]}")
 
 
 
