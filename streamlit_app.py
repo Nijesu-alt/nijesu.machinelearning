@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import pickle 
+import gzip
+
 
 st.title('🤖 Machine Learning App')
 
@@ -90,6 +92,14 @@ gender_dummies = gender_dummies[gender_columns]
 df_new = pd.concat([df_numeric, df_cat, gender_dummies], axis=1)
 scaler_input = scaler.transform(df_new)
 scaler_input
+
+with gzip.open('mymodel1.pkl.gz', 'rb') as f:
+    model = pickle.load(f)
+
+if st.button("Predict"):
+    prediction = model.predict(scaler_input)
+    prediction
+    # st.success(f"Prediction: {prediction[0]}")
 
 
 
