@@ -38,8 +38,6 @@ with st.sidebar:
   tot_spend = st.number_input('Total Spend', 100, 1000, 500, 50)
   last_int = st.slider('Last Interaction', 1, 50, 25, 1)
 
-st.text_input('what do you think?')
-
 data = {
   'Age' : age,
   'Gender' : gender,
@@ -66,8 +64,6 @@ input_tot = pd.concat([input_df, X], axis=0)
 with st.expander('Input Features'):
   st.write('**Inputed Customer Churn Features**')
   input_df
-  st.write('**Combined Churn Data**')
-  input_tot
 
 df_numeric = input_df[['Age', 'Tenure', 'Usage Frequency', 'Support Calls', 'Payment Delay', 'Total Spend', 'Last Interaction']]
 df_cat = input_df[['Subscription Type', 'Contract Length']]
@@ -91,7 +87,6 @@ gender_dummies = gender_dummies[gender_columns]
 
 df_new = pd.concat([df_numeric, df_cat, gender_dummies], axis=1)
 scaler_input = scaler.transform(df_new)
-scaler_input
 
 with gzip.open('mymodel1.pkl.gz', 'rb') as f:
     model = pickle.load(f)
