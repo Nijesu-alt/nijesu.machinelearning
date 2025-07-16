@@ -26,6 +26,7 @@ with st.expander('Data Visualization'):
   st.scatter_chart(data=df, x='CustomerID', y='Total Spend', color='Churn')
 
 with st.sidebar:
+  st.sidebar.markdown("<h3 style='color:#F63366;'>Customer Profile</h3>", unsafe_allow_html=True)
   st.markdown("""
     <div style="padding:10px; background-color:#f0f2f6; border-radius:10px">
         <h4 style="color:#262730;">Select Customer Info</h4>
