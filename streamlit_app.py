@@ -98,7 +98,10 @@ with gzip.open('mymodel1.pkl.gz', 'rb') as f:
 
 if st.button("Predict"):
     prediction = model.predict(scaler_input)
-    st.success(f"Prediction: {prediction[0]}")
+    if prediction[0] == 1:
+      st.error("⚠️ This customer is likely to churn")
+    else:
+      st.success("✅ This customer is likely to stay")
 
 
 
