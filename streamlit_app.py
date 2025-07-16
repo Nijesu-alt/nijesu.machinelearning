@@ -27,11 +27,6 @@ with st.expander('Data Visualization'):
 
 with st.sidebar:
   st.sidebar.markdown("<h3 style='color:#F63366;'>Customer Profile</h3>", unsafe_allow_html=True)
-  st.markdown("""
-    <div style="padding:10px; background-color:#f0f2f6; border-radius:10px">
-        <h4 style="color:#262730;">Select Customer Info</h4>
-    </div>
-""", unsafe_allow_html=True)
   st.header('Input Features')
   gender = st.selectbox('Gender', ['Female', 'Male'])
   sub_type = st.selectbox('Subscription Type', ['Basic', 'Standard', 'Premium'])
