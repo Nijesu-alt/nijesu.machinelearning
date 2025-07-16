@@ -80,6 +80,12 @@ with open('gender_cols.pkl', 'rb') as f:
 
 gender_dummies = pd.get_dummies(input_df['Gender'])
 gender_dummies = gender_dummies.reindex(columns=gender_columns, fill_value=0)
+gender_columns.remove('Male')
+insert_pos = gender_columns.index('Female')
+gender_columns.insert(insert_pos, 'Male')
+gender_dummies = gender_dummies[gender_columns]
+
+
 
 df_new = pd.concat([df_numeric, df_cat, gender_dummies], axis=1)
 df_new
