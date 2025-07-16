@@ -50,6 +50,13 @@ data = {
   'Last Interaction' : last_int
 }
 
+sub_type_map = {'Basic' : 1, 'Standard':2, 'Premium':3}
+con_length_map = {'Monthly':1, 'Annual':2, 'Quarterly':3}
+sub = sub_type
+con = con_length
+sub = sub_type_map[sub]
+con = con_length_map[con]
+
 input_df = pd.DataFrame(data, index=[0])
 input_tot = pd.concat([input_df, X], axis=0)
 
@@ -61,11 +68,9 @@ with st.expander('Input Features'):
 
 df_numeric = input_df[['Age', 'Tenure', 'Usage Frequency', 'Support Calls', 'Payment Delay', 'Total Spend', 'Last Interaction']]
 df_cat = input_df[['Subscription Type', 'Contract Length']]
-sub_type_map = {'Basic' : 1, 'Standard':2, 'Premium':3}
-con_length_map = {'Monthly':1, 'Annual':2, 'Quarterly':3}
 
-df_cat['Subscription Type'] = sub_type_map[df_cat['Subscription Type']]
-df_cat['Contract Length'] = con_length_map[df_cat['Contract Length']]
+
+
 
 with open('scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
