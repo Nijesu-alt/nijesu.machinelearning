@@ -88,7 +88,8 @@ gender_dummies = gender_dummies[gender_columns]
 
 
 df_new = pd.concat([df_numeric, df_cat, gender_dummies], axis=1)
-df_new
+scaler_input = scaler.transform(df_new)
+scaler_input
 
 
 
