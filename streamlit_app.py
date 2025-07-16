@@ -80,7 +80,7 @@ with open('gender_cols.pkl', 'rb') as f:
     gender_columns = pickle.load(f)
 
 gender_dummies = pd.get_dummies(input_df['Gender'])
-gender_dummies = gender_dummies.reindex(columns=dummy_columns, fill_value=0)
+gender_dummies = gender_dummies.reindex(columns=gender_columns, fill_value=0)
 
 gender_dummies
 
