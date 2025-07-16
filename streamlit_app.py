@@ -58,3 +58,15 @@ with st.expander('Input Features'):
   input_df
   st.write('**Combined Churn Data**')
   input_tot
+
+df_numeric = input_df[['Age', 'Tenure', 'Usage Frequency', 'Support Calls', 'Payment Delay', 'Total Spend', 'Last Interaction']]
+df_cat = input_df[['Subscription Type', 'Contract Length']]
+sub_type_map = {'Basic' : 1, 'Standard':2, 'Premium':3}
+con_length_map = {'Monthly':1, 'Annual':2, 'Quarterly':3}
+
+# if input_df['Gender']=='Male'
+#   male = 1.069719
+#   female = -1.069719
+# elif input_df['Gender'] == 'Female':
+#   male = -0.934825
+#   female = 0.934825
