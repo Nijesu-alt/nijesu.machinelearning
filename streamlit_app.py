@@ -69,9 +69,8 @@ with st.expander('Input Features'):
 
 df_numeric = input_df[['Age', 'Tenure', 'Usage Frequency', 'Support Calls', 'Payment Delay', 'Total Spend', 'Last Interaction']]
 df_cat = input_df[['Subscription Type', 'Contract Length']]
-
-
-
+df_cat['Subscription Type'] = sub
+df_cat['Contract Length'] = con
 
 with open('scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
@@ -82,7 +81,8 @@ with open('gender_cols.pkl', 'rb') as f:
 gender_dummies = pd.get_dummies(input_df['Gender'])
 gender_dummies = gender_dummies.reindex(columns=gender_columns, fill_value=0)
 
-gender_dummies
+df_new = pd.concat([df_numeric, df_cat, gender_dummies], axis=1)
+df_new
 
 
 
