@@ -93,10 +93,20 @@ with gzip.open('mymodel1.pkl.gz', 'rb') as f:
 
 if st.button("Predict"):
     prediction = model.predict(scaler_input)
+    proba = model.predict_proba(scaler_input)[0][1]
+
+    st.subheader("📊 Prediction Result")
+    st.metric(label="Churn Probability (%)", value=f"{round(proba * 100, 2)}")
+
+
     if prediction[0] == 1:
       st.error("⚠️ This customer is likely to churn")
+      st.info("💡 Consider offering loyalty incentives or personalized outreach.")
+
     else:
       st.success("✅ This customer is likely to stay")
+      st.info("🏆 Maintain engagement through targeted content and value-added services.")
+
 
 
 
