@@ -64,6 +64,22 @@ df_cat = input_df[['Subscription Type', 'Contract Length']]
 sub_type_map = {'Basic' : 1, 'Standard':2, 'Premium':3}
 con_length_map = {'Monthly':1, 'Annual':2, 'Quarterly':3}
 
+df_cat['Subscription Type'] = sub_type_map[df_cat['Subscription Type']]
+df_cat['Contract Length'] = con_length_map[df_cat['Contract Length']]
+
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
+
+with open('gender_cols.pkl', 'rb') as f:
+    gender_columns = pickle.load(f)
+
+gender_dummies = pd.get_dummies(input_df['Gender'])
+gender_dummies = gender_dummies.reindex(columns=dummy_columns, fill_value=0)
+
+gender_dummies
+
+
+
 # if input_df['Gender']=='Male'
 #   male = 1.069719
 #   female = -1.069719
