@@ -4,7 +4,7 @@ import pickle
 import gzip
 
 
-st.title('🤖 Machine Learning App')
+st.title("<h3 style='color:#F63366;'>🤝 Customer Churn Prediction App</h3>", unsafe_allow_html=True)
 
 st.info('This app builds a machine learning model')
 
