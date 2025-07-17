@@ -88,12 +88,13 @@ gender_dummies = gender_dummies[gender_columns]
 
 df_new = pd.concat([df_numeric, df_cat, gender_dummies], axis=1)
 scaler_input = scaler.transform(df_new)
+safe_input = scaler_input.tolist() if hasattr(scaler_input, "tolist") else scaler_input
 
 with gzip.open('mymodel1.pkl.gz', 'rb') as f:
     model = pickle.load(f)
 
 if st.button("Predict"):
-    response = requests.post("http://127.0.0.1:5000/predict", json={"features": scaler_input})
+    response = requests.post("http://127.0.0.1:5000/predict", json={"features": safe_input[0]})
 
     if response.status_code == 200:
         result = response.json()['prediction']
