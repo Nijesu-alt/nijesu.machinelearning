@@ -93,20 +93,37 @@ with gzip.open('mymodel1.pkl.gz', 'rb') as f:
     model = pickle.load(f)
 
 if st.button("Predict"):
-    prediction = model.predict(scaler_input)
-    proba = model.predict_proba(scaler_input)[0][1]
+    response = requests.post("http://127.0.0.1:5000/predict", json={"features": scaler_input})
 
-    st.subheader("📊 Prediction Result")
-    st.metric(label="Churn Probability (%)", value=f"{round(proba * 100, 2)}")
+    if response.status_code == 200:
+        result = response.json()['prediction']
+        proba = response.json().get('probability', None)  # Optional: model probability
 
+        if result == 1:
+            st.error("📉 Prediction: Customer is **likely to churn**.")
+            st.info("💡 Action: Offer a personalized retention incentive or engage customer support.")
+        else:
+            st.success("📈 Prediction: Customer is **not likely to churn**.")
+            st.info("✅ Action: Continue regular engagement and monitor satisfaction.")
 
-    if prediction[0] == 1:
-      st.error("⚠️ This customer is likely to churn")
-      st.info("💡 Consider offering loyalty incentives or personalized outreach.")
-
+        if proba is not None:
+            st.write(f"📊 Estimated probability of churn: **{proba:.2%}**")
     else:
-      st.success("✅ This customer is likely to stay")
-      st.info("🏆 Maintain engagement through targeted content and value-added services.")
+        st.warning("🔒 Please log in through the Flask app first.")
+    # prediction = model.predict(scaler_input)
+    # proba = model.predict_proba(scaler_input)[0][1]
+
+    # st.subheader("📊 Prediction Result")
+    # st.metric(label="Churn Probability (%)", value=f"{round(proba * 100, 2)}")
+
+
+    # if prediction[0] == 1:
+    #   st.error("⚠️ This customer is likely to churn")
+    #   st.info("💡 Consider offering loyalty incentives or personalized outreach.")
+
+    # else:
+    #   st.success("✅ This customer is likely to stay")
+    #   st.info("🏆 Maintain engagement through targeted content and value-added services.")
 
 
 
