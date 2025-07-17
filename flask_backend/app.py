@@ -38,7 +38,11 @@ def predict():
     data = request.get_json()
     input_data = np.array([data['features']])
     prediction = model.predict(input_data)
-    return jsonify({'prediction': int(prediction[0])})
+    probability = model.predict_proba(input_data)[0][1]  # Churn probability
+    return jsonify({
+    'prediction': int(prediction[0]),
+    'probability': float(probability)
+})
 
 if __name__ == '__main__':
     app.run(debug=True)
