@@ -69,8 +69,10 @@ with st.expander('Input Features'):
 
 df_numeric = input_df[['Age', 'Tenure', 'Usage Frequency', 'Support Calls', 'Payment Delay', 'Total Spend', 'Last Interaction']]
 df_cat = input_df[['Subscription Type', 'Contract Length']]
-df_cat['Subscription Type'] = sub
-df_cat['Contract Length'] = con
+# df_cat['Subscription Type'] = sub
+# df_cat['Contract Length'] = con
+df_cat['Subscription Type'] = df_cat['Subscription Type'].map(sub_type_map)
+df_cat['Contract Length'] = df_cat['Contract Length'].map(con_length_map)
 
 with open('scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
