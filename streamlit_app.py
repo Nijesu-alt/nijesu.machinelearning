@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle 
 import gzip
+import requests
 
 
 st.title("🤝 Customer Churn Prediction App")
